@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Dating Site</title>
+
+    <style type="text/css">
+
+        fieldset {
+            background: powderblue;
+            border: 10px solid yellow;
+            margin-bottom: 10px;
+            width: 720px;
+        }
+
+        label {
+            width: 180px;
+            display: inline-block;
+            vertical-align: middle;
+            text-align: right;
+        }
+
+        label.inner-label {
+            width: auto;
+        }
+
+        #address {
+            width: 360px;
+            height: 50px;
+        }
+
+        .range-text {
+            margin: 0;
+            width: 30px;
+            text-align: center;
+            display: inline-block;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>Please Enter Your Details For Our Dating Website</h1>
+
+<form>
+    <fieldset id="face-field">
+        <legend>Your Face</legend>
+        <label for="avatar">Your image:</label>
+        <input type="file" id="avatar" name="avatar" required> <br>
+        <label for="preview">Image preview</label> <br>
+        <img id="preview">
+    </fieldset>
+
+    <fieldset id="detail-field">
+        <legend>Your General Details</legend>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required> <br>
+        <label>Gender:</label>
+        <input type="radio" id="gender-m" name="gender" checked>
+        <label for="gender-m" class="inner-label">Male</label>
+        <input type="radio" id="gender-f" name="gender">
+        <label for="gender-f" class="inner-label">Female</label>
+        <br>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required> <br>
+        <label for="birth_date">Date of birth:</label>
+        <input type="date" id="birth_date" name="age"> <br>
+        <label for="fav-color">Favorite color</label>
+        <input type="color" id="fav-color" name="fav-color"> <br>
+        <label for="country">Which country:</label>
+        <select id="country" name="country">
+            <option value="no selection" selected></option>
+            <option value="United States">United States</option>
+            <option value="Russia">Russia</option>
+            <option value="China">China</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="France">France</option>
+        </select>
+
+    </fieldset>
+
+    <fieldset id="indicator-field">
+        <legend>Your Indicators</legend>
+        <label for="height">Height:</label>
+        <p class="range-text">Short</p>
+        <input type="range" id="height" min="0", max="100">
+        <p class="range-text">Tall</p> <br>
+        <label for="salary">Salary:</label>
+        <p class="range-text">Poor</p>
+        <input type="range" id="salary" min="0", max="100">
+        <p class="range-text">Rich</p>
+    </fieldset>
+
+    <fieldset id="contact-field">
+        <legend>Your Contact Information</legend>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required> <br>
+        <label for="mobile">Mobile:</label>
+        <input type="tel" id="mobile"> <br>
+        <label for="address">Address:</label>
+        <textarea id="address"></textarea> <br>
+        <label>Method to contact you:</label>
+        <input type="checkbox" id="contact-email" name="contact-email">
+        <label for="contact-email" class="inner-label">Email</label>
+        <input type="checkbox" id="contact-whatsapp" name="contact-whatsapp">
+        <label for="contact-whatsapp" class="inner-label">Whatsapp</label>
+        <input type="checkbox" id="contact-chat" name="contact-chat">
+        <label for="contact-chat" class="inner-label">In-app chat</label>
+
+    </fieldset>
+
+    <input type="submit">
+</form>
+
+</body>
+
+</html>
