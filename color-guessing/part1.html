@@ -10,21 +10,21 @@
 <body onload="do_game()">
 
 <script>
-    var colors = ['blue', 'cyan', 'gold', 'gray', 'green', 'magenta', 'organge', 'red', 'white', 'yellow'];
+    var colors = ['blue', 'cyan', 'gold', 'gray', 'green', 'magenta', 'orange', 'red', 'white', 'yellow'];
     var nColors = colors.length;
     var nGuesses = 0;
+    var target;
     var finished = false;
 
     var do_game = function() {
-        var index = Math.floor(Math.random() * nColors);
-        var target = colors[index];
+        target = Math.floor(Math.random() * nColors);
 
         while (!finished) {
-            guess = prompt('I am thinking of one of these colors:\n\n' + colors.join(', ') + '\n\nWhat color am I thinking of?');
+            var guess = prompt('I am thinking of one of these colors:\n\n' + colors.join(', ') + '\n\nWhat color am I thinking of?');
             nGuesses += 1;
-            finished = (guess === target);
+            finished = (guess === colors[target]);
         }
-    }
+    };
 
 </script>
 
