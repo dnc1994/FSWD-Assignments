@@ -10,11 +10,11 @@
          content must come *after* these tags -->
     <title>Ristorante Con Fusion</title>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="css/mystyles.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/bootstrap-social.css" rel="stylesheet">
+    <link href="css/mystyles.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -59,9 +59,7 @@
                         </ul>
                     </li>
                     <li><a href="contactus.html"><i class="fa fa-envelope-o"></i> Contact</a></li>
-                    <li><a data-toggle="modal" data-target="#loginModal">
-                        <span class="glyphicon glyphicon-log-in"></span> Login</a>
-                    </li>
+                    <li><a id="nav-login-btn"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
             </div>
         </div>
@@ -164,7 +162,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-xs-12 col-sm-1 col-sm-offset-2">
-                                <button id="reserve_btn" class="btn btn-primary">Reserve</button>
+                                <button id="reserve-btn" class="btn btn-primary">Reserve</button>
                             </div>
                             <div class="col-xs-12 col-sm-1 col-sm-offset-1">
                                 <button id="cancel-btn" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -198,8 +196,7 @@
                     <img src="img/logo.png" class="img-responsive">
                 </div>
                 <div class="col-xs-12 col-sm-2" style="display: inline-block; vertical-align: middle; float: none;">
-                    <a type="button" class="btn btn-warning btn-block"
-                       data-toggle="modal" data-target="#reserveModal">Reserve Table</a>
+                    <a id="header-reserve-btn" type="button" class="btn btn-warning btn-block">Reserve Table</a>
                 </div>
             </div>
         </div>
@@ -263,6 +260,15 @@
                         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
+
+                    <div class="btn-group" id="carouselButtons">
+                        <button class="btn btn-danger btn-xs" id="carousel-pause">
+                            <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+                        </button>
+                        <button class="btn btn-danger btn-xs" id="carousel-play">
+                            <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -386,9 +392,28 @@
     </footer>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#mycarousel").carousel( { interval: 2000 } );
+            $("#carousel-pause").click(function(){
+                $("#mycarousel").carousel('pause');
+            });
+            $("#carousel-play").click(function(){
+                $("#mycarousel").carousel('cycle');
+            });
+
+            $("#nav-login-btn").click(function(){
+                $('#loginModal').modal('show');
+            });
+            $("#header-reserve-btn").click(function(){
+                $('#reserveModal').modal('show');
+            });
+        });
+    </script>
 
 </body>
 
