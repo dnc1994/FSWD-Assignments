@@ -56,14 +56,18 @@
                 <h2>Corporate Leadership</h2>
                 <ul class="media-list">
                     <li class="media" ng-repeat="leader in leaders | filter:filtText">
-                        <div class="media-left media-middle">
-                            <img class="media-object img-thumbnail" ng-src={{leader.image}} alt="">
+                        <div ng-if="!showPromotion">
+                            <h3>{{message2}}</h3>
                         </div>
-                        <div class="media-body">
-                            <h2 class="media-heading">{{leader.name}}
-                                <small>{{leader.designation}}</small></h2>
-                            <p>{{leader.description}}</p>
-
+                        <div class="media" ng-if="showLeaders">
+                            <div class="media-left media-middle">
+                                <img class="media-object img-thumbnail" ng-src={{leader.image}} alt="">
+                            </div>
+                            <div class="media-body">
+                                <h2 class="media-heading">{{leader.name}}
+                                    <small>{{leader.designation}}</small></h2>
+                                <p>{{leader.description}}</p>
+                            </div>
                         </div>
                     </li>
                 </ul>

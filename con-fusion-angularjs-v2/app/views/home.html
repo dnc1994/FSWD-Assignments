@@ -6,17 +6,22 @@
                 <h3 align=center>Our Lipsmacking Culinary Creations</h3>
             </div>
             <div class="col-xs-12 col-sm-9 col-sm-pull-3">
-                <div class="media-left media-middle">
-                    <a ui-sref="app.dishdetails({id: featuredDish._id})">
-                        <img class="media-object img-thumbnail"
-                             ng-src={{featuredDish.image}} alt="">
-                    </a>
+                <div ng-if="!showDish">
+                    <h3>{{message}}</h3>
                 </div>
-                <div class="media-body">
-                    <h2 class="media-heading">{{featuredDish.name}}
-                        <span class="label label-danger">{{featuredDish.label}}</span>
-                        <span class="badge">{{featuredDish.price | currency}}</span></h2>
-                    <p>{{featuredDish.description}}</p>
+                <div class="media" ng-if="showDish">
+                    <div class="media-left media-middle">
+                        <a ui-sref="app.dishdetails({id: featuredDish._id})">
+                            <img class="media-object img-thumbnail"
+                                 ng-src={{dish.image}} alt="">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h2 class="media-heading">{{dish.name}}
+                            <span class="label label-danger">{{dish.label}}</span>
+                            <span class="badge">{{dish.price | currency}}</span></h2>
+                        <p>{{dish.description}}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -28,17 +33,22 @@
                 <h3 align=center>This Month's Promotions</h3>
             </div>
             <div class="col-xs-12 col-sm-9">
-                <div class="media-body">
-                    <h2 class="media-heading">{{promotionDish.name}}
-                        <span class="label label-danger">{{promotionDish.label}}</span>
-                        <span class="badge">{{promotionDish.price | currency}}</span></h2>
-                    <p>{{promotionDish.description}}</p>
+                <div ng-if="!showPromotion">
+                    <h3>{{message2}}</h3>
                 </div>
-                <div class="media-right media-middle">
-                    <a ui-sref="app.dishdetails({id: promotionDish._id})">
-                        <img class="media-object img-thumbnail"
-                             ng-src={{promotionDish.image}} alt="">
-                    </a>
+                <div class="media" ng-if="showPromotion">
+                    <div class="media-body">
+                        <h2 class="media-heading">{{promotion.name}}
+                            <span class="label label-danger">{{promotion.label}}</span>
+                            <span class="badge">{{promotion.price | currency}}</span></h2>
+                        <p>{{promotion.description}}</p>
+                    </div>
+                    <div class="media-right media-middle">
+                        <a ui-sref="app.dishdetails({id: promotionDish._id})">
+                            <img class="media-object img-thumbnail"
+                                 ng-src={{promotion.image}} alt="">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -49,13 +59,18 @@
                 <h3 align=center>Meet our Culinary Specialists</h3>
             </div>
             <div class="col-xs-12 col-sm-9 col-sm-pull-3">
-                <div class="media-left media-middle">
-                    <img class="media-object img-thumbnail" ng-src={{chefInfo.image}} alt="">
+                <div ng-if="!showLeader">
+                    <h3>{{message2}}</h3>
                 </div>
-                <div class="media-body">
-                    <h2 class="media-heading">{{chefInfo.name}}
-                        <small>{{chefInfo.designation}}</small></h2>
-                    <p>{{chefInfo.description}}</p>
+                <div class="media" ng-if="showLeader">
+                    <div class="media-left media-middle">
+                        <img class="media-object img-thumbnail" ng-src={{leader.image}} alt="">
+                    </div>
+                    <div class="media-body">
+                        <h2 class="media-heading">{{leader.name}}
+                            <small>{{leader.designation}}</small></h2>
+                        <p>{{leader.description}}</p>
+                    </div>
                 </div>
             </div>
         </div>
